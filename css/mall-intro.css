@@ -1,0 +1,26 @@
+body {
+    overflow: hidden;
+}
+.mall-intro-section {
+    width: 100vw;
+    height: 100vh;
+
+    /* background-color: #fab617; */
+}
+
+.mall-intro-text {
+    /* height: max-content; */
+    /* width: max-content; */
+    /* font-size: 130vmin; */
+
+    animation-name: mall-intro-text;
+
+    animation-duration: 8s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+}
+@keyframes mall-intro-text {
+    0% {transform: translateX(50%) translateY(45%) scale(1);}
+    100% {transform: translateX(50%) translateY(45%) scale(0.5);}
+}

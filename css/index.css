@@ -1,0 +1,318 @@
+
+body{
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+    font-size: 6vmin;
+}
+
+
+
+
+
+/* //////////////////// index-wait section */
+
+.index-loading-wrapper {
+    display: grid;
+    grid-auto-flow: row;
+    justify-items: center;
+}
+
+.index-loading-progress {
+    width: 90vmin;
+    height: 10vmin;
+
+    -webkit-appearance: none;
+    appearance: none;
+}
+.index-loading-progress[value]::-webkit-progress-bar,
+.index-loading-progress[value]::-webkit-progress-value {border-radius: 5vmin;}
+
+.index-loading-progress[value]::-webkit-progress-bar {background-color: #eee;}
+.index-loading-progress[value]::-webkit-progress-value {background-color: #fab617;}
+.index-loading-text {
+    /* font-size: 3vmin; */
+    line-height: 100%;
+
+    position: absolute;
+    right: 50%;
+    bottom: 50%;
+    transform: translateX(50%) translateY(50%);
+}
+
+
+
+
+
+
+/* //////////////////// index-montage section */
+
+/* 애니메이션 동기화를 위한 스타일링 */
+.index-montage-animation, .index-montage-frame::after{
+    animation-duration: 25s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+
+
+/* 위치 조정을 위한 스타일링 */
+.index-montage{
+    width: 100%;
+    height: 100%;
+
+    animation-name: montage-container;
+}
+@keyframes montage-container {
+    0%, 64% {transform: translateY(50%) translateX(50%);}
+    72%, 80% {transform: translateY(45%) translateX(50%);}
+    84%, 88% {transform: translateY(25%) translateX(50%); opacity: 1;}
+    100% {transform: translateY(25%) translateX(50%); opacity: 0;}
+}
+
+
+
+/* 크기 조정을 위한 스타일링 */
+.index-montage-wrapper{
+    animation-name: montage-wrapper;
+    animation-timing-function: ease-in;
+}
+@keyframes montage-wrapper {
+    0% {width: 250vmin; height: 250vmin; opacity: 0;}
+    12% {opacity: 1;}
+    60%, 100% {width: 40vmin; height: 40vmin; opacity:1;}
+}
+
+
+
+/* 이미지 삽입을 위한 스타일링 */
+.index-montage-frame{
+    width: 100%;
+    height: 100%;
+    
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    
+    animation-name: montage-frame;
+    animation-timing-function: ease-in;
+}
+@keyframes montage-frame {
+    0%, 48% {border-radius: 0;}
+    60%, 100% {border-radius: 6vmin;}
+    80% {opacity: 1;}
+    84%, 100% {opacity: 0;}
+}
+
+
+
+/* 로고 삽입을 위한 스타일링 */
+.index-montage-frame::after{
+    width: 101%;
+    height: 101%;
+    
+    content: "";
+    
+    position: absolute;
+    right: 50%;
+    bottom: 50%;
+    transform: translateX(50%) translateY(50%);
+
+    background-color: rgba(250, 182, 23, 1);
+
+    background-image: url('../resources/img/kodak-logo.svg');
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 30vmin;
+
+    animation-name: logo;
+    animation-timing-function: linear;
+}
+@keyframes logo {
+    0%, 48% {opacity: 0; border-radius: 0;}
+    60%, 100% {opacity: 1; border-radius: 5vmin;}
+}
+
+
+
+/* remember me? 텍스트 엘리먼트 스타일링 */
+.initiation-text{
+    width: max-content;
+    color: white;
+    /* font-weight: bold; */
+    font-size: 10vmin;
+    animation-name: initiation-text;
+}
+@keyframes initiation-text {
+    0%, 12%, 48%, 100% {opacity: 0}
+    20%, 40% {opacity: 1}
+}
+
+
+
+/* slogan 텍스트 위치 조정을 위한 스타일링 */
+.index-slogan{
+    width: max-content;
+    height: 9vmin;
+
+    display: flex;
+    justify-items: center;
+    flex-direction: column-reverse;
+    overflow: hidden;
+
+    transform: translateX(50%);
+
+
+    color: #fab617;
+    
+    animation-name: index-slogan;
+    scroll-behavior: smooth;
+}
+@keyframes index-slogan {
+    0%, 64% {bottom: 0vmin; opacity: 0;}
+    68% {opacity: 0;}
+    72%, 100% {opacity: 1; bottom: -9vmin;}
+}
+
+
+
+/* sloga 텍스트 스타일링 및 애니메이션 */
+.index-slogan div{
+    position: relative;
+    
+    width: max-content;
+    height: 9vmin;
+
+    margin: auto;
+}
+
+.index-slogan-text-1{animation-name: index-slogan-text-1;}
+@keyframes index-slogan-text-1 {
+    0%, 74% {transform: translateY(0%); opacity: 1}
+    76% {opacity: 0}
+    78%, 100% {transform: translateY(100%); opacity: 0}
+}
+
+.index-slogan-text-2{animation-name: index-slogan-text-2;}
+@keyframes index-slogan-text-2 {
+    0%, 74% {transform: translateY(0%); opacity: 0;}
+    75%{opacity: 0;}
+    78%, 100% {transform: translateY(100%); opacity: 1;}
+}
+
+
+
+
+
+
+/* //////////////////// index-greeting section */
+
+.index-greeting {
+    width: 100%;
+    height: max-content;
+
+    display: flex;
+    flex-direction: column;
+
+    font-size: 9vmin;
+    color: #fab617;
+}
+
+.index-greeting::after {
+    height: 100vh;
+    width: 100vw;
+    content: "";
+
+    z-index: -1;
+
+    position: absolute;
+    right: 50%;
+    bottom: 50%;
+    transform: translateX(50%) translateY(50%);
+
+    background-color: #e30613;
+
+    transition: 1s;
+
+    animation-name: fade-in;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+}
+@keyframes fade-in {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+.index-greeting-text {
+    padding-left: 5%;
+    padding-right: 5%;
+    transition: inherit;
+}
+
+.index-greeting-text span {
+    white-space: pre;
+    height: 13.5vmin;
+    transition: inherit;
+}
+
+
+
+
+
+
+/* //////////////////// index-greeting section */
+
+.index-link{
+    height: 100%;
+    width: 100%;
+}
+
+.index-link-wrapper {
+    height: 100%;
+    width: 100%;
+    background-color: #fab617;
+    color: #e30613;
+
+    animation-name: fade-in;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+}
+@keyframes fade-in {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+.index-link dl {
+    margin-bottom: 0;
+}
+
+.index-link-list {
+    width: max-content;
+}
+.index-link-text-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(10vmin, 80vmin));
+
+    width: 90vw;
+    margin-bottom: 4vmin;
+}
+.index-link-text-wrapper:last-child{margin-bottom: 0}
+
+.index-link dt, .index-link dd {
+    display: inline-block;
+    white-space: pre;
+    width: max-content;
+
+    align-self: baseline;
+}
+
+.index-link dt {
+    cursor: pointer;
+    font-size: 8vmin;
+    font-weight: bold;
+}
+.index-link dd {
+    margin-left: 0;
+}

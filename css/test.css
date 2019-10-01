@@ -1,0 +1,26 @@
+.loading {
+    height: 100vh;
+    width: 100%;
+    border: 1vmin solid gold;
+}
+
+.loading-wrapper {
+    display: grid;
+    grid-auto-flow: row;
+    justify-items: center;
+}
+
+.loading-title {
+    width: max-content;
+}
+
+.loading-progress {
+    width: 250%;
+    height: 3vmin;
+
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.loading-progress[value]::-webkit-progress-bar {background-color: #eee;}
+.loading-progress[value]::-webkit-progress-value {background-color: #fab617;}

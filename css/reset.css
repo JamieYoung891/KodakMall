@@ -1,0 +1,54 @@
+body{
+    padding: 0;
+    margin: 0;
+
+    font-family: Roboto;
+    font-size: 3vmin;
+}
+
+body, header, nav, section, div, span, ul, li
+{position: relative; box-sizing: border-box}
+
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.display-none{display: none;}
+.opacity-zero{opacity: 0;}
+
+
+
+.fixed-top{
+    position: sticky;
+    top: 0;
+    animation-name: fade-in;
+}
+
+.display-none-animation, .opacity-zero-animation, .fade-in-animation, .fixed-top{
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.display-none-animation{animation-name: display-none;}
+@keyframes display-none {0% {opacity: 1;} 99% {opacity: 0;} 100% {opacity: 0; display: none;}}
+
+.opacity-zero-animation{animation-name: opacity-zero;}
+@keyframes opacity-zero {0% {opacity: 1;} 100% {opacity: 0;}}
+
+.fade-in-animation{animation-name: fade-in;}
+@keyframes fade-in {0% {opacity: 0;} 100% {opacity: 1;}}
+
+.fade-out-50-animation{animation-name: fade-out-50;}
+@keyframes fade-out-50 {0% {opacity: 1;} 100% {opacity: 0.5;}}
+
+
+.position-center, .position-fixed{
+    right: 50%;
+    bottom: 50%;
+    transform: translateX(50%) translateY(50%);
+}
+.position-center {position: absolute;}
+.position-fixed {position : fixed;}

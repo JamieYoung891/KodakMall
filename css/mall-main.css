@@ -1,0 +1,452 @@
+/* ////////// ////////// 정렬 세팅 */
+
+body {
+    color: #555;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: minmax(96vmin, 180vmin);
+    justify-content: space-evenly;
+}
+
+.area {
+    height: 100%;
+    width: 100%;
+    padding-left: 3vmin;
+    padding-right: 3vmin;
+}
+
+
+
+
+
+
+/* ////////// ////////// 헤더 */
+
+.mall-main-header {
+    height: 60vmin;
+    background-color: #222;
+}
+
+
+
+.mall-main-header-area {
+    display: grid;
+    grid-template-columns: minmax(50vmin, 3fr) 25vmin;
+    align-content: center;
+}
+
+.mall-main-header nobr {
+    white-space: pre;
+    /* display: block; */
+}
+
+.mall-main-header-slogan {
+    margin-bottom: 4vmin;
+
+    font-size: 8vmin;
+    line-height: 110%;
+    font-weight: bold;
+    color: #e30613;
+}
+
+.mall-main-header-txt {
+    font-size: 4vmin;
+    color: #bbb;
+}
+
+
+
+.mall-main-header-logo{
+    height: 100%;
+    
+    background-image: url('../resources/img/kodak-logo-1.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center right;
+}
+
+
+
+
+
+
+/* ////////// ////////// 네비게이션 */
+
+.mall-nav {
+    height: 7vmin;
+    width: 100%;
+    background-color: #fab617;
+    z-index: 10;
+}
+
+
+
+.mall-nav-main-list {
+    height: 100%;
+
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    font-weight: bold;
+}
+
+
+
+.mall-nav-sub-area {
+    height: max-content;
+    padding-top: 3vmin;
+    padding-bottom: 3vmin;
+    background: linear-gradient(180deg, rgba(255,255,255,1), rgba(255,255,255,0.9));
+
+    position: absolute;
+    top: 100%;
+
+    transition: height 1s;
+}
+
+.mall-nav-sub-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    grid-gap: 12vmin;
+
+    line-height: 200%;
+}
+
+.mall-nav-sub-section::after {
+    content: "";
+
+    height: 80%;
+    border-right: 1px solid rgba(85,85,85,0.5);
+
+    position: absolute;
+    right: 50%;
+    bottom: 50%;
+    transform: translateY(50%);
+}
+
+.mall-nav-further-list {
+    font-size: 2.5vmin;
+    font-weight: lighter;
+}
+
+
+
+/* 인디케이터 스타일링 */
+.sub-list-indicator {
+    display: inline-block;
+    
+    position: absolute;
+}
+.mall-nav-main-list .sub-list-indicator{right: 2vmin;}
+.mall-nav-sub-list .sub-list-indicator{right: -3vmin;}
+
+.sub-list-indicator::after{
+    display: block;
+    width: 4vmin;
+
+    font-weight: lighter;
+    color: #e30613;
+
+    text-align: center;
+}
+.indicator-plus::after {content: "+";}
+.indicator-minus::after {content: "-";}
+
+
+
+/* 개별 버튼 스타일링 */
+.nav-button, .nav-button-after {
+    height: 100%;
+    width: fit-content;
+
+    display: grid;
+    align-items: center;
+    
+    padding-right: 1vmin;
+    padding-left: 1vmin;
+}
+.to-sub {padding-right: 6vmin; padding-left: 4vmin;}
+.nav-logo-trigger, .nav-sitemap-trigger {padding: 0;}
+
+.nav-button:hover, .nav-button-after:hover {cursor: pointer;}
+.mall-nav-main-list .nav-button:hover, .mall-nav-main-list .nav-button-after {background-color: rgba(255,255,255,0.5);}
+
+
+.mall-nav-sub-list .nav-button, .mall-nav-sub-list .nav-button-after {
+    position: relative;
+    left: 100%;
+    transform: translateX(-100%);
+}
+
+
+.mall-nav-sub-list .nav-button:hover::after, .mall-nav-sub-list .nav-button-after::after {
+    content: '';
+    height: 100%;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.mall-nav-sub-list .nav-button-after::after {width: 100%;}
+
+.mall-nav-sub-list .nav-button:hover::after {
+    border-bottom: 0.5vmin solid #fab617;
+
+    animation-name: underline-animation;
+    animation-duration: 0.3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.75, 0, 0.75, 0);
+}
+@keyframes underline-animation {0% {width: 0%} 100% {width: 100%}}
+
+.mall-nav-sub-list .nav-button-after::after {border-bottom: 0.5vmin solid #fab617;}
+
+
+
+/* 로고 및 사이트맵 스타일링 */
+.nav-logo, .nav-sitemap {
+    height: 100%;
+    width: 8vmin;
+}
+
+.nav-logo {
+    background-image: url(../resources/img/kodak-logo-1.svg);
+    background-size: 6vmin;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.nav-sitemap {
+    padding: 2vmin;
+    padding-right: 2.5vmin;
+    padding-left: 2.5vmin;
+
+    display: grid;
+    grid-auto-flow: row;
+    align-items: center;
+}
+
+.nav-sitemap div {
+    height: 0.5vmin;
+
+    background-color: #555;
+    border-radius: 0.5vmin;
+}
+
+
+
+
+
+
+/* ////////// ////////// 메인 */
+
+.mall-main {padding-top: 40vmin; padding-bottom: 40vmin;}
+
+.mall-main-section {
+    display: grid;
+    padding: 10vmin;
+
+    margin-bottom: 10vmin;
+}
+.mall-main-section:last-child {margin-bottom: 0;}
+
+
+
+.mall-main-category-section{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.mall-main-category{
+    width: 100%;
+    height: 100%;
+}
+
+.mall-main-category-txt {
+    font-size: 6vmin;
+    color: #555;
+    line-height: 100%;
+    
+    position: absolute;
+    left: 5vmin;
+    top: 0;
+    
+    transform: translateY(-50%);
+
+    padding: 3vmin;
+}
+
+
+
+.mall-main-sub-category-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20vmin, 1fr));
+    grid-gap: 2vmin;
+}
+
+.mall-main-sub-category {
+    display: grid;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+.mall-main-sub-category-img {
+    width: 20vmin;
+    height: 20vmin;
+
+    border: 1px solid black;
+}
+
+
+
+
+
+
+/* ////////// ////////// 카테고리 */
+
+.mall-category {
+    z-index: 20;
+    
+    height: 100vh;
+    width: 100%;
+
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.mall-category-area, .mall-category-outer{padding: 3vmin;}
+
+.mall-category-outer {
+    background-color: white;
+    
+    perspective: 1px;
+    perspective-origin: top left;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.mall-category-outer, .mall-category-inner{height: 100%;width: 100%;}
+
+
+
+
+.mall-category-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    overflow: hidden;
+}
+
+.mall-category-article {
+    position: absolute;
+    right: 0;
+
+    padding: 2vmin;
+}
+
+@media (orientation: portrait) {
+    .mall-category-header {
+        height: 50vmin;
+        right: 0;
+    }
+    .mall-category-article {
+        top: 50vmin;
+        left: 0;
+    }
+
+} @media (orientation: landscape) {
+    .mall-category-header {
+        right: 60%;
+        bottom: 0;
+    }
+    .mall-category-article {
+        top: 0;
+        left: 40%;
+    }
+}
+
+.mall-category-img{
+    position: absolute;
+    height: 110%;
+    width: 100%;
+
+    transform-origin: top left;
+    transform: translateZ(-1px) scale(2);
+
+    background-image: url(../resources/img/index-intro/intro-2.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+
+    animation-name: mall-category-img;
+    animation-duration: 10s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
+@keyframes mall-category-img {0% {background-size: 90vmin;} 100% {background-size: 100vmin;}}
+
+
+
+.mall-category-article > div {margin-bottom: 5vmin}
+.mall-category-article > div:first-child {margin-top: 10vmin}
+.mall-category-article > div:last-child{margin-bottom: 0;}
+
+.mall-category-title {font-size: 6vmin; line-height: 100%;}
+
+
+
+
+.mall-category-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15vmin, 1fr));
+    grid-gap: 2vmin;
+    align-items: center;
+    justify-items: center;
+}
+
+.mall-category-item {
+    height: 15vmin;
+    width: 15vmin;
+}
+
+.category-item-main {
+    border: 1px solid #fab617;
+}
+.category-item-sub {
+    border: 1px solid grey;
+}
+
+.close-button {
+    cursor: pointer;
+    position: absolute;
+    bottom:4vmin; right:50%;
+    transform: translateX(50%);
+    background-color: #fab617;
+
+    height: 6vmin;
+    width: 6vmin;
+    opacity: 1;
+}
+.close-button:hover{opacity:1}
+
+.close-button::after, .close-button::before {
+    content: "";
+    border-top: 1vmin solid #e30613;
+    width: 100%;
+
+    position: absolute;
+    bottom: 50%;
+    right: 50%;
+}
+.close-button::after {
+    transform: translateX(50%) translateY(50%) rotate(45deg);
+}
+.close-button::before {
+    transform: translateX(50%) translateY(50%) rotate(-45deg);
+}
